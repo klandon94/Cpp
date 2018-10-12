@@ -15,7 +15,7 @@ private:
 SimpleCat::SimpleCat(int age, int weight):
 itsAge(age), itsWeight(weight) {}
 
-SimpleCat &TheFunction();
+SimpleCat & TheFunction();
 
 int main()
 {
@@ -38,6 +38,6 @@ SimpleCat &TheFunction()
     // Memory is allocated on the heap and assigned to a pointer
     SimpleCat *pFrisky = new SimpleCat(5,9);
     std::cout << "pFrisky: " << pFrisky << std::endl;
-    // return *pFrisky;
-    return pFrisky  // return pointer rather than the dereferenced pointer (pointer to memory created in line 39)
+    return *pFrisky;
+    // return *pFrisky; --> return pointer rather than the dereferenced pointer (pointer to memory created in line 39)
 }
