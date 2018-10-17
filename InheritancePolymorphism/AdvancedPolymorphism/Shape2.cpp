@@ -1,16 +1,21 @@
 #include <iostream>
 
-// only exists to provide an interface for the classes derived from it --> an Abstract Data Type
-// represents a concept rather than an object, not possible to make an instance of Shape
 class Shape
 {
 public:
     Shape() {}
     virtual ~Shape() {}
-    virtual long getArea() {return -1;}     // error
-    virtual long getPerim() {return -1;}
-    virtual void draw() {}
+    // pure virtual functions --> if any one is declared pure virtual, the class would be an ADT
+    virtual long getArea() = 0;
+    virtual long getPerim() = 0;
+    virtual void draw() = 0;
+private:
 };
+
+void Shape::draw()
+{
+    std::cout << "Abstract drawing mechanism!\n";
+}
 
 class Circle : public Shape
 {
@@ -28,6 +33,7 @@ private:
 void Circle::draw()
 {
     std::cout << "Circle drawing routine here!\n";
+    Shape::draw();
 }
 
 class Rectangle : public Shape
